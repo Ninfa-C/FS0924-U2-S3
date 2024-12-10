@@ -54,12 +54,13 @@ btnAdd.addEventListener("click", (e) => {
   const specie = document.getElementById("petSpecie").value;
   const race = document.getElementById("petRace").value;
 
-  // Creazione oggetto Pet, ovvero creare l'istanza
+  // Creazione oggetto Pet, per poter pushare un oggetto nell'array e non i singoli volori come proprietà singoli.
   let mypet;
   mypet = new Pet(ownerName, petName, specie, race);
   pets.push(mypet)
+  localStorage.setItem('pets', JSON.stringify(pets))
 
-//console.log(pets)
+console.log(pets)
 
   // Verifica duplicati
   if (!ownersList.includes(ownerName)) {
